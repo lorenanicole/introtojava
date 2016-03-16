@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Intro to Java
+Or at least a soft exploration of it
+
+---
+
+# Agenda
+
+####1. Introductions
+####2. Java and the Java environment
+####3. Java primitives
+####4. Exercise: "Hello world"
+####5. Exercise: Write more methods!
+####6. Run a Java program from the command line
+####7. Exercise: Write a Java class
+####8. Wrap up with AllState 
+
+---
+
+# Introduction
+
+### My name is Lorena Mesa
+
+### Why are you here today?
+
+---
+
+# Coderpad - an online REPL
+
+REPL - Read, evalulate, print, loop
+
+Online REPLs allow us to use Java without having to install it on your local machine (for now)
+
+To start:
+
+* Navigate to `http://coderpad.io`
+* Select `try demo` => `Java`
+* Look -- some prepopulated code, a `Solution` class!
+* Hit `run >` to execute the code!
+
+---
+
+# Java
+
+Static, strongly typed
+
+```Java
+int age = 5;
+String name = "Maru";
+bool isFluffy = true;
+```
+
+Sometimes these [two can be confused](http://stackoverflow.com/questions/121385/what-are-the-key-aspects-of-a-strongly-typed-language), for example Python is a dynamic strongly typed language
+
+Static languages use known types, these types are checked at run time as shown above
+
+In Java the [compiler will check for these type of errors](http://www.sitepoint.com/typing-versus-dynamic-typing/) rather than at run time
+
+Strongly typed indicates that the types for objects change, while strong vs weak is more a spectrum we say Java is [strongly typed](http://stackoverflow.com/questions/20563433/different-between-static-and-dynamic-programming-languages)
+
+---
+# Let's create a variable
+
+Just like Algebra when we'd solve for a variable `x` and used a variable to represent a value, we use variables in programming
+
+(For those of you that have coded this is no surprise!)
+
+To create a variable in Java, we opt to use `camelCase` for variable names, opting for lowercase to start 
+
+Now that we know Java is a static programming, we know we need to define the type of variable too
+
+---
+# Java Primitives
+
+Like any language, Java has [built in primitives](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html)
+
+Primitives are the most basic built in data types, there are 8 of them
+
+Here are a few examples of Java primitives:
+```java
+
+char example = 'a'; // single 16-bit Unicode character
+int exampleTwo = 3; // minimum value of -231 and a maximum value of 231-1
+long exampleThree = 9999999; // minimum value of -263 and a maximum value of 263-1
+float exampleFour = 9.02; // 32-bit 754 floating point
+double exampleFive = 333.10; // 64-bit 754 floating point
+bool exampleSix = false;
+```
+
+---
+
+# You try
+
+Inside the `main` function (between the `{ ... }`) of the `Solution` class create the following:
+
+1. Create an `int` variable with the value of the `date` today times the value of the `year`
+2. Create a `bool` variable 
+3. Create a `double` variable with the value of `pi` modulo the number of pies you ate on pie day! (Mar 14)
+
+As you'd expect, you can do math with `int`, `double`, `float`, `long`!
+
+*What happens if you try to multiple the `int` variable from 1 with the `bool` variable with 2?*
+
+This is an example of Java's strong typing!
+---
+
+# But wait, we only have a `char` to work with?
+
+You may have noticed that a `char` is only a single Unicode character
+
+Primitives don't let us do much in Java, they allow us to do math operations but if we want to do other things we will need to use objects
+
+Primitives can be "[autoboxed](https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html)" into an object using a [primitive wrapper class](https://en.wikipedia.org/wiki/Primitive_wrapper_class)
+
+A class wraps up a primitive's data along with methods to let you do things with the data and carry the data in one object, all objects in Java descend from the `java.lang.Object` [class](https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html) 
+
+```java
+int oldInt = 8;
+Integer newInt = Integer.valueOf(oldInt);
+newInt += oldInt;
+System.out.println(newInt); // What do you think the value is?
+```
+---
+
+# You try
+
+Inside the `main` function (between the `{ ... }`) of the `Solution` class create the following:
+
+1. Create an `int` variable with the value of your `age`
+2. Wrap the primitive `age` with a primitive wrapper (*Which one should we use and why?*)
+2. Create a `<what type ?>` variable with the value of your `name`
+3. `System.out.println` a message with your `age` and `name`
+
+---
+# You try
+
+1. Create an `int` variable with the value of your `age`
+2. Wrap the primitive `age` into the primitive wrapper to make the `int` a text
+2. Create a `String` variable with the value of your `name`
+3. `System.out.println` a message with your `age` and `name`
+
+```Java
+int age = 29;
+String newAge = String.valueOf(age);
+String name = "Lorena";
+
+System.out.println(name + " is " + age);
+```
+
+Primitives use less memory than objects, therefore "prefer primitives to boxed primitives" as Joshua Bloch advises in [Effective Java](http://www.amazon.com/Effective-Java-Edition-Joshua-Bloch/dp/0321356683)
+
+
+---
+
+
+
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
